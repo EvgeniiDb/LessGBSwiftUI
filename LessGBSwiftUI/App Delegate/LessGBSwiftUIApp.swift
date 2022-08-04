@@ -11,7 +11,8 @@ import SwiftUI
 struct LessGBSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            FriendList()
         }
     }
 }

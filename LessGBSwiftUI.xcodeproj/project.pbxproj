@@ -11,6 +11,9 @@
 		E657FE762891919D003113BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657FE752891919D003113BA /* ContentView.swift */; };
 		E657FE78289191A1003113BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E657FE77289191A1003113BA /* Assets.xcassets */; };
 		E657FE7B289191A1003113BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E657FE7A289191A1003113BA /* Preview Assets.xcassets */; };
+		E65F2C19289BD5AA00F76233 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65F2C18289BD5AA00F76233 /* FriendList.swift */; };
+		E65F2C1C289BD74C00F76233 /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65F2C1B289BD74C00F76233 /* FriendListCell.swift */; };
+		E65F2C1F289BDBA500F76233 /* ImgModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65F2C1E289BDBA500F76233 /* ImgModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		E657FE752891919D003113BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E657FE77289191A1003113BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E657FE7A289191A1003113BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E65F2C18289BD5AA00F76233 /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+		E65F2C1B289BD74C00F76233 /* FriendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
+		E65F2C1E289BDBA500F76233 /* ImgModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,11 @@
 		E657FE722891919D003113BA /* LessGBSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E657FE732891919D003113BA /* LessGBSwiftUIApp.swift */,
-				E657FE752891919D003113BA /* ContentView.swift */,
+				E65F2C1D289BDB5500F76233 /* Modifier */,
+				E65F2C1A289BD72100F76233 /* Cell */,
+				E65F2C15289BD50400F76233 /* Friend List */,
+				E65F2C14289BD47600F76233 /* Login */,
+				E65F2C13289BD43700F76233 /* App Delegate */,
 				E657FE77289191A1003113BA /* Assets.xcassets */,
 				E657FE79289191A1003113BA /* Preview Content */,
 			);
@@ -65,6 +74,46 @@
 				E657FE7A289191A1003113BA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E65F2C13289BD43700F76233 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E657FE732891919D003113BA /* LessGBSwiftUIApp.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		E65F2C14289BD47600F76233 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E657FE752891919D003113BA /* ContentView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E65F2C15289BD50400F76233 /* Friend List */ = {
+			isa = PBXGroup;
+			children = (
+				E65F2C18289BD5AA00F76233 /* FriendList.swift */,
+			);
+			path = "Friend List";
+			sourceTree = "<group>";
+		};
+		E65F2C1A289BD72100F76233 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E65F2C1B289BD74C00F76233 /* FriendListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E65F2C1D289BDB5500F76233 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				E65F2C1E289BDBA500F76233 /* ImgModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +188,9 @@
 			files = (
 				E657FE762891919D003113BA /* ContentView.swift in Sources */,
 				E657FE742891919D003113BA /* LessGBSwiftUIApp.swift in Sources */,
+				E65F2C19289BD5AA00F76233 /* FriendList.swift in Sources */,
+				E65F2C1C289BD74C00F76233 /* FriendListCell.swift in Sources */,
+				E65F2C1F289BDBA500F76233 /* ImgModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
