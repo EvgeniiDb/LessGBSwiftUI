@@ -10,9 +10,31 @@ import Combine
 
 
 struct ContentView: View {
-    @State private var login = ""
-    @State private var password = ""
+    @State private var login: String = ""
+    @State private var password: String = ""
     @State private var shouldShowLogo: Bool = true
+    
+    @State private var alertIsShown: Bool = false
+    @State private var showIncorrentCredentialsWarning = false
+    
+    @State var isUserLoggedIn: Bool = false
+    //@Binding var isUserLoggedIn: Bool
+    
+    @State private var mainIsShow = false
+    
+    private func buttonAction() {
+        mainIsShow = true
+    }
+    
+    private func verifyLoginData() {
+        if login == "Zzz" && password == "111" {
+            buttonAction()
+        } else {
+            alertIsShown = true
+        }
+//        //сброс пароля
+//        password = ""
+    }
     
     private let keyboardIsOnPublisher = Publishers.Merge (
         NotificationCenter.default.publisher(for:
@@ -25,7 +47,9 @@ struct ContentView: View {
         .removeDuplicates()
     
     var body: some View {
-        VStack {
+
+        
+        HStack {
             
             ScrollView {
             
@@ -39,64 +63,91 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             .frame(maxWidth: 300)
-            
+                
+                
             HStack {
-                Text("Password:")
-                Spacer()
-                SecureField("Password", text: $password)
-                    .frame(maxWidth: 200)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                passwordInput
             }
-            .frame(maxWidth: 300)
-            .padding(.top, 25)
+
             
-            Button(action: { print("Hello") }) {
-                Text("Enter")
+            Button(action: verifyLoginData) {
+                Text("Log in")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
-                    .lineLimit(/*@START_MENU_TOKEN@*/15/*@END_MENU_TOKEN@*/)
+                    .lineLimit(15)
                     
             }
             .padding(.top, 50)
             .padding(.bottom, 20)
             .disabled(login.isEmpty || password.isEmpty)
-            
-            ZStack {
-                GeometryReader { geometry in
-                    Image("")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+            .alert(isPresented: $alertIsShown) {
+                Alert(title: Text("Error"),
+                      message: Text("Incorrect Login/Password was entered"),
+            dismissButton: .default(Text("OK"))
+                    )
+            }
+
+                
+                ZStack {
+                    GeometryReader { geometry in
+                        Image("")
+                            .resizable()
+                            .edgesIgnoringSafeArea(.all)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: geometry.size.width)
+                                   
+                    }
+                
+                    .background(Color(red: 0.129, green: 0.533, blue: 0.959))
                 }
-                .background(Color(red: 0.129, green: 0.533, blue: 0.959))
+                
+                
+                Button(action: { print("Reg") }) {
+                    Text("Registration")
+                        .foregroundColor(Color.black)
+                }
+                .padding(.top, 5)
+                .padding(.bottom, 10)
+                .disabled(login.isEmpty || password.isEmpty)
+                
+                }
+                
             }
-            
-            
-            Button(action: { print("Reg") }) {
-                Text("Registration")
-                    .foregroundColor(Color.black)
-            }
-            .padding(.top, 5)
-            .padding(.bottom, 10)
-            .disabled(login.isEmpty || password.isEmpty)
-            
-            }
-            
+
+        
             .onReceive(keyboardIsOnPublisher) { isKeyboardKeyOn in
                 withAnimation(Animation.easeInOut(duration:  0.5)) {
                     self.shouldShowLogo = !isKeyboardKeyOn
                 }
-            }
-        }.onTapGesture {
+            
+        
+    }.onTapGesture {
             UIApplication.shared.endEditing()
         }
-            
+
         .background(Color(red: 0.129, green: 0.533, blue: 0.959))
         }
-     
+    
+    
+}
+
+
+
+
+private extension ContentView {
+    var passwordInput: some View {
+        HStack {
+            Text("Password:")
+            Spacer()
+            SecureField("Password", text: $password)
+                .frame(maxWidth: 200)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
+        .frame(maxWidth: 300)
+        .padding(.top, 25)
     }
+}
 
 extension UIApplication {
     func endEditing() {
@@ -110,10 +161,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-            ContentView()
-                .preferredColorScheme(.dark)
-                .previewInterfaceOrientation(.landscapeLeft)
-                .previewDevice("iPhone 13 Pro")
+//                .preferredColorScheme(.dark)
+//                .previewInterfaceOrientation(.landscapeLeft)
+//                .previewDevice("iPhone 13 Pro")
+            }
         }
     }
-}
+
+
