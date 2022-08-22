@@ -15,11 +15,13 @@ struct FriendsList: View {
     ]
 
     var body: some View {
+        
         NavigationView {
             friendsList
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: EditButton())
         }
+        
     }
 
     private func deleteFriend(_ index: IndexSet, _ section: [String]) {

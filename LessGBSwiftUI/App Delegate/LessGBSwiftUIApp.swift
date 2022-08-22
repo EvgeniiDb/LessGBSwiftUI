@@ -11,7 +11,9 @@ import SwiftUI
 struct LessGBSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(isLoggedIn: .constant(false))
+            //MainScreen()
+            //LoginView(isLoggedIn: .constant(true))
             //FriendsList()
         }
     }

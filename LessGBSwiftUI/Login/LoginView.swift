@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  LessGBSwiftUI
 //
 //  Created by Евгений Доброволец on 27.07.2022.
@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 
-struct ContentView: View {
+struct LoginView: View {
     @State private var login: String = ""
     @State private var password: String = ""
     @State private var shouldShowLogo: Bool = true
@@ -17,24 +17,28 @@ struct ContentView: View {
     @State private var alertIsShown: Bool = false
     @State private var showIncorrentCredentialsWarning = false
     
-    @State var isUserLoggedIn: Bool = false
-    //@Binding var isUserLoggedIn: Bool
+    
+    @State var showMainScreen: Bool = false
+    //@State var isLoggedIn = false
+    @Binding var isLoggedIn: Bool
     
     @State private var mainIsShow = false
     
-    private func buttonAction() {
-        mainIsShow = true
-    }
+//    private func buttonAction() {
+//        mainIsShow = true
+//    }
     
     private func verifyLoginData() {
         if login == "Zzz" && password == "111" {
-            buttonAction()
+            isLoggedIn = true
         } else {
             alertIsShown = true
         }
 //        //сброс пароля
 //        password = ""
+       
     }
+    
     
     private let keyboardIsOnPublisher = Publishers.Merge (
         NotificationCenter.default.publisher(for:
@@ -47,7 +51,14 @@ struct ContentView: View {
         .removeDuplicates()
     
     var body: some View {
-
+        
+//        VStack {
+//        if isLoggedIn {
+//            MainScreen()
+//        } else {
+//            LoginView(isLoggedIn: $isLoggedIn)
+//            }
+//        }
         
         HStack {
             
@@ -64,7 +75,6 @@ struct ContentView: View {
             }
             .frame(maxWidth: 300)
                 
-                
             HStack {
                 passwordInput
             }
@@ -76,7 +86,6 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
                     .lineLimit(15)
-                    
             }
             .padding(.top, 50)
             .padding(.bottom, 20)
@@ -88,8 +97,8 @@ struct ContentView: View {
                     )
             }
 
-                
                 ZStack {
+                    
                     GeometryReader { geometry in
                         Image("")
                             .resizable()
@@ -112,30 +121,29 @@ struct ContentView: View {
                 .disabled(login.isEmpty || password.isEmpty)
                 
                 }
-                
+            
             }
-
+        
+        
         
             .onReceive(keyboardIsOnPublisher) { isKeyboardKeyOn in
                 withAnimation(Animation.easeInOut(duration:  0.5)) {
                     self.shouldShowLogo = !isKeyboardKeyOn
                 }
-            
         
     }.onTapGesture {
             UIApplication.shared.endEditing()
         }
 
         .background(Color(red: 0.129, green: 0.533, blue: 0.959))
-        }
-    
+        
+        
+    }
     
 }
 
 
-
-
-private extension ContentView {
+private extension LoginView {
     var passwordInput: some View {
         HStack {
             Text("Password:")
@@ -156,11 +164,11 @@ extension UIApplication {
 }
 
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            LoginView(isLoggedIn: .constant(false))
+//            LoginView(isLoggedIn: .constant(true))
 //                .preferredColorScheme(.dark)
 //                .previewInterfaceOrientation(.landscapeLeft)
 //                .previewDevice("iPhone 13 Pro")

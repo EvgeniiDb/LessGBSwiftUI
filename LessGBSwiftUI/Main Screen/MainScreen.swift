@@ -10,12 +10,14 @@ import SwiftUI
 struct MainScreen: View {
 
     var body: some View {
+        
         TabView {
             friendsTabBar
             newsTabBar
             groupsTabBar
         }
-        .accentColor(.main)
+        .accentColor(.accentColor)
+        
     }
 }
 
