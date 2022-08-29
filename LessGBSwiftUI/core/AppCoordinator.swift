@@ -19,7 +19,7 @@ final class AppCoordinator {
     
     init() {
         let viewModel = LoginViewModel()
-        let loginView = VKLoginWebView(viewModel: viewModel)
+        let loginView = VKLoginWebView()
         let rootViewController = UIHostingController(rootView: loginView)
         
         self.navigationController = UINavigationController(rootViewController: rootViewController)

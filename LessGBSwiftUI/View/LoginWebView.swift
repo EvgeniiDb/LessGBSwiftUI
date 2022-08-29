@@ -11,19 +11,11 @@ import Combine
 
 struct VKLoginWebView: UIViewRepresentable {
     
-    // View модель авторизации
-    @ObservedObject var viewModel: LoginViewModel
-    
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = navigationDelegate
-        
-        navigationDelegate.authorize = {
-            self.authorize()
-        }
-        
         return webView
     }
     
@@ -40,7 +32,7 @@ struct VKLoginWebView: UIViewRepresentable {
         components.path = "/authorize"
         components.queryItems = [
             URLQueryItem(name: "client_id", value: "6704883"),
-            URLQueryItem(name: "scope", value: "friends, photos, wall, groups"),
+            URLQueryItem(name: "scope", value: "262150"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "response_type", value: "token"),
@@ -49,15 +41,9 @@ struct VKLoginWebView: UIViewRepresentable {
         
         return components.url.map { URLRequest(url: $0) }
     }
-    
-    private func authorize() {
-        self.viewModel.authorize()
-    }
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-    
-    var authorize: (() -> Void)? = nil
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
@@ -89,9 +75,6 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         
         UserDefaults.standard.set(token, forKey: "vkToken")
         NotificationCenter.default.post(name: NSNotification.Name("vkTokenSaved"), object: self)
-        print("Token: \(token)")
-        
-        authorize?()
         
         decisionHandler(.cancel)
     }
