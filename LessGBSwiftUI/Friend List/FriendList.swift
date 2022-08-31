@@ -18,7 +18,7 @@ struct FriendsList: View {
         
         NavigationView {
             friendsList
-                .navigationBarTitleDisplayMode(.inline)
+                //.navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: EditButton())
         }
         

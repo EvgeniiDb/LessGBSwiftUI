@@ -68,6 +68,7 @@
 		E652828228BCC9980016AE0D /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		E652828428BCCA290016AE0D /* UserImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImagesResponse.swift; sourceTree = "<group>"; };
 		E652828628BCCA4E0016AE0D /* UserImagesMainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImagesMainResponse.swift; sourceTree = "<group>"; };
+		E652828828BFEABA0016AE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E657FE702891919D003113BA /* LessGBSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessGBSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E657FE732891919D003113BA /* LessGBSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessGBSwiftUIApp.swift; sourceTree = "<group>"; };
 		E657FE752891919D003113BA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		E657FE722891919D003113BA /* LessGBSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E652828828BFEABA0016AE0D /* Info.plist */,
 				E652827E28BCC8FF0016AE0D /* ApiRequests */,
 				E652826828B751F90016AE0D /* core */,
 				E65E0DE528A5AA9100CBFEC8 /* Main Screen */,
@@ -536,7 +538,7 @@
 				DEVELOPMENT_TEAM = K6F3384T7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LessGBSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -565,7 +567,7 @@
 				DEVELOPMENT_TEAM = K6F3384T7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LessGBSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
