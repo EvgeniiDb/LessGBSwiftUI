@@ -9,9 +9,9 @@ import Foundation
 
 
 enum CodingStyles {
-    case camelCase
-    case snakeCase
     case kebabCase
+    case snakeCase
+    case camelCase
 }
 
 // для приведения строк к выбранному стилю
@@ -46,12 +46,12 @@ private extension CodingStyle {
         let text = cleanText()
         
         switch currectCase {
-        case .camelCase:
-            return makeCamelCase(text)
-        case .snakeCase:
-            return format(text, withCase: "-")
         case .kebabCase:
             return format(text, withCase: "_")
+        case .snakeCase:
+            return format(text, withCase: "-")
+        case .camelCase:
+            return makeCamelCase(text)
         }
     }
     
