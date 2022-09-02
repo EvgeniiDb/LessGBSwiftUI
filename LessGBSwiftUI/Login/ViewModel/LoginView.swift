@@ -157,11 +157,7 @@ private extension LoginView {
     }
 }
 
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
+
 
 
 struct ContentView_Previews: PreviewProvider {
