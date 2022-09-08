@@ -7,29 +7,29 @@
 
 import UIKit.UIImage
 
-/// Протокол вью модели для контроллера Friends
+// Протокол вью модели для контроллера Friends
 protocol FriendsViewModelType {
     
-    /// Список друзей текущего пользователя
+    // Список друзей текущего пользователя
     var friends: [FriendsSection] { get }
     
-    /// Cписок друзей текущего пользователя, которые подходят под поисковой запрос
+    // Cписок друзей текущего пользователя, которые подходят под поисковой запрос
     var filteredData: [FriendsSection] { get }
     
-    /// Сервис по загрузке данных пользователей
+    // Сервис по загрузке данных пользователей
     var loader: UserLoader { get }
     
-    /// Скачиваем из сети список друзей пользователя
+    // Скачиваем из сети список друзей пользователя
     func fetchFriends(completion: @escaping () -> Void)
     
-    /// Осуществляет поиск друзей среди списка друзей пользователя по введённому тексту
+    // Осуществляет поиск друзей среди списка друзей пользователя по введённому тексту
     func search(_ text: String, completion: @escaping () -> Void)
     
-    /// Осуществляет действия после нажатия кнопки отмены поиска
+    // Осуществляет действия после нажатия кнопки отмены поиска
     func cancelSearch(completion: @escaping() -> Void)
 }
 
-/// Вью модель для контроллера Friends
+// Вью модель для контроллера Friends
 final class FriendsViewModel: FriendsViewModelType, ObservableObject {
     var objectWillChange = ObjectWillChangePublisher()
     

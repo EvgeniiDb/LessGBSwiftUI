@@ -1,5 +1,5 @@
 //
-//  NewsView.swift
+//  NewsScreenView.swift
 //  LessGBSwiftUI
 //
 //  Created by Евгений Доброволец on 02.09.2022.
@@ -8,14 +8,15 @@
 
 import SwiftUI
 
-struct NewsView: View {
+struct NewsScreenView: View {
     var body: some View {
-        Text("News View")
+        NewsUIKitView()
     }
 }
 
-struct NewsView_Previews: PreviewProvider {
+struct NewsScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView()
+        NewsScreenView()
     }
 }
+

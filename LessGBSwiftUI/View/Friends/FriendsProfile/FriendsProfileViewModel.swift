@@ -8,22 +8,22 @@
 import UIKit.UIImage
 import Combine
 
-/// Протокол вью модели для FriendsProfile
+// Протокол вью модели для FriendsProfile
 protocol FriendsProfileViewModelType {
     
-    /// Модель друга, чей профиль загружаем
+    // Модель друга, чей профиль загружаем
     var friend: Friend { get set }
     
-    /// Ссылки на картинки пользователя
+    // Ссылки на картинки пользователя
     var storedImages: [FriendImage] { get }
     
-    /// Загруженные модели картинок
+    // Загруженные модели картинок
     var storedModels: [ApiImage] { get }
     
-    /// Сервис по загрузке данных пользователя
+    // Сервис по загрузке данных пользователя
     var loader: UserLoader { get }
     
-    /// Загружает картинки
+    // Загружает картинки
     func fetchPhotos(completion: @escaping () -> Void)
     
     init(friend: Friend, loader: UserLoader)
